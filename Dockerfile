@@ -11,6 +11,7 @@ RUN  \
 
 
 FROM debian:stable
+RUN apt-get update && apt-get install -y ca-certificates
 COPY --from=builder /go/bin/mc /usr/bin/mc
 COPY entrypoint.sh .
 RUN chmod a+x entrypoint.sh
